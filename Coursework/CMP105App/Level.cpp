@@ -12,10 +12,8 @@ Level::Level(sf::RenderWindow& hwnd, Input& in, GameState& gs, AudioManager& aud
     if (!m_sheepTexture.loadFromFile("gfx/sheep_sheet.png")) std::cerr << "no sheep texture";
 
     // everything else we can chuck into reset()
-    m_playerRabbit = nullptr;    // ensures nothing is deleted inside reset();
+    m_playerRabbit = nullptr; // ensures nothing is deleted inside reset();
     reset();
-
-
 }
 
 Level::~Level()
@@ -71,7 +69,6 @@ void Level::reset()
     m_gameTimer.restart();
 
     m_audio.stopAllMusic();
-    m_audio.playMusicbyName("nature");
 }
 
 void Level::UpdateCamera()
@@ -137,7 +134,11 @@ void Level::manageCollisions()
             }
         }
         if (Collision::checkBoundingBox(*m_sheepList[i], m_goal))
+        {
             m_sheepList[i]->collideWithGoal(m_goal);
+            m_audio.playSoundbyName("yay");
+        }
+            
     }
     for (auto wall : m_walls)
     {
@@ -174,6 +175,7 @@ void Level::update(float dt)
         writeHighScore(timeElapsed);
         displayScoreboard();
     }
+
 }
 
 // Render level

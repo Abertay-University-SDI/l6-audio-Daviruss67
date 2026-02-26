@@ -1,6 +1,9 @@
 #pragma once
+#include <vector>
+#include "iostream"
 #include "Framework/GameObject.h" 
 #include "Framework/Animation.h" 
+#include "Framework/AudioManager.h"
 
 class Animal : public GameObject
 {
@@ -15,6 +18,7 @@ public:
 protected:  // RECAP: protected means "private but too all except my kids", so Sheep/Rabbit can change them.
     void setDirection();
     void checkWallAndBounce();
+    void setAudioPointer(AudioManager* audio);
 
     // Shared Properties
     sf::Vector2f m_worldSize;
@@ -32,4 +36,6 @@ protected:  // RECAP: protected means "private but too all except my kids", so S
     Animation m_walkDownRight;
 
     Animation* m_currentAnimation;
+    
+    AudioManager* m_audioPointer;
 };

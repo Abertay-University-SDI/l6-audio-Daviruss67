@@ -61,6 +61,12 @@ void Animal::checkWallAndBounce()
         m_velocity.y *= -m_restitution;
 }
 
+void Animal::setAudioPointer(AudioManager* audio)
+{
+    m_audioPointer->getSound("bah");
+}
+
+
 // sets animation pointer based on direction
 void Animal::setDirection()
 {
