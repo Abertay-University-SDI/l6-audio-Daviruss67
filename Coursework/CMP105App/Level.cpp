@@ -13,7 +13,9 @@ Level::Level(sf::RenderWindow& hwnd, Input& in, GameState& gs, AudioManager& aud
 
     // everything else we can chuck into reset()
     m_playerRabbit = nullptr;    // ensures nothing is deleted inside reset();
-    reset();   
+    reset();
+
+
 }
 
 Level::~Level()
@@ -67,6 +69,9 @@ void Level::reset()
     loadLevel("data/level1.txt", levelSize);
 
     m_gameTimer.restart();
+
+    m_audio.stopAllMusic();
+    m_audio.playMusicbyName("nature");
 }
 
 void Level::UpdateCamera()
