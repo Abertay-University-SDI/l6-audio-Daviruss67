@@ -69,6 +69,7 @@ void Level::reset()
     m_gameTimer.restart();
 
     m_audio.stopAllMusic();
+    m_audio.playMusicbyName("nature");
 }
 
 void Level::UpdateCamera()

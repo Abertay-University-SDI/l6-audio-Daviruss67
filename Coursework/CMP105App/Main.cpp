@@ -88,6 +88,9 @@ int main()
 	Menu menu(window, input, gameState, audio);
 	gameState.setCurrentState(State::MENU);
 
+	audio.stopAllMusic();
+	audio.playMusicbyName("corpo");
+
 	// Initialise objects for delta time
 	sf::Clock clock;
 	float deltaTime = 0.f;
@@ -113,7 +116,6 @@ int main()
 			if (gameState.getCurrentState() == State::MENU)
 			{
 				menu.reset();
-				level.reset();
 			}
 			else
 			{
@@ -125,6 +127,10 @@ int main()
 		{
 			menu.handleInput(deltaTime);
 			menu.render();
+			if(gameState.getCurrentState() != State::MENU)
+			{
+				level.reset();
+			}
 		}
 
 

@@ -3,7 +3,7 @@
 AudioManager::AudioManager()
 {
 	addMusic("nature", "sfx/nature.mp3");
-	addMusic("corporate", "sfx/corporate.mp3");
+	addMusic("corpo", "sfx/corporate.mp3");
 
 	addSound("yay","sfx/yay.mp3");
 	addSound("bah","sfx/bah.mp3");
